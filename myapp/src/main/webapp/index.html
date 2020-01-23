@@ -13,7 +13,7 @@
 </head>
 <body class="bg-light">
   	<nav class="navbar navbar-dark bg-dark">
-    	<label class="col-form-lable col-2 text-white h4">
+    	<label class="col-form-lable col-2 text-white h4 wbdv-label wbdv-course-manager">
                Courser Manager
       	</label>
       	<div class="dropdown ustify-content-end wbdv-field wbdv-hamburger">
@@ -48,19 +48,21 @@
   	</nav>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light border sticky-top">
 		<div class="container">
-	  		<a class="navbar-brand col col-4 offset-md-3 font-weight-bold wbdv-header wbdv-title"
-	  		   href="#"
-	  		   style="color: #808080">Title</a>
-	  		<div class="collapse navbar-collapse col col-2" id="navbarSupportedContent wbdv-header wbdv-owner">
+			<div class="col col-6">
+		  		<a class="navbar-brand font-weight-bold wbdv-header wbdv-title"
+		  		   href="#"
+		  		   style="color: #808080; float: left;">Title</a>
+	  		</div>
+	  		<div class="collapse navbar-collapse col col-3" id="navbarSupportedContent wbdv-header wbdv-owner">
 	  			<ul class="navbar-nav">
 		  			<li class="nav-item dropdown">
-	       			<a class="nav-link dropdown-toggle font-weight-bold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	       			<a class="nav-link dropdown-toggle font-weight-bold d-none d-xl-block" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	          			Owned By
 	        		</a>
 	      			</li>
       			</ul>
 	  		</div>
-	  		<a class="navbar-text col col-2 font-weight-bold wbdv-header wbdv-last-modified"
+	  		<a class="navbar-text col col-2 font-weight-bold wbdv-header wbdv-last-modified d-none d-xl-block"
 	  		   href="#">Last modified by me</a>
 	  		<label class="col-1"></label>
 	  		<a href="#">
@@ -74,7 +76,7 @@
       		<input class="form-control mr-sm-2 wbdv-field wbdv-new-course"
       		   	   type="addCourse"
       		   	   placeholder="Enter a Course Title"
-      		      aria-label="addCourse">
+      		       aria-label="addCourse">
       		<button class="btn btn-outline-success my-2 my-sm-0 wbdv-button wbdv-add-course"
       			    type="submit">Add Course</button>
 		</form>
@@ -90,56 +92,56 @@
 			</button>
 			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
 				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="#" role="button">CS4550 Software Engineering Undergraduate</a>
+				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">CS4550 Software Engineering Undergraduate</a>
 				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
 				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:45 PM</li>
 				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
 			</button>
 			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
 				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="#" role="button">CS4500 WebDev Undergraduate</a>
+				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">CS4500 WebDev Undergraduate</a>
 				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
 				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:45 PM</li>
 				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
 			</button>
 			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
 				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="#" role="button">CS5610 WebDev Graduate</a>
+				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">CS5610 WebDev Graduate</a>
 				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
 				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:44 PM</li>
 				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
 			</button>
 			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
 				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="#" role="button">CS5200 Intro to Databases</a>
+				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">CS5200 Intro to Databases</a>
 				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
 				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:43 PM</li>
 				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
 			</button>
 			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
 				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="#" role="button">WebDev 2 - React</a>
+				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">WebDev 2 - React</a>
 				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
 				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:33 PM</li>
 				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
 			</button>
 			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
 				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="#" role="button">WebDev Syllabus</a>
+				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">WebDev Syllabus</a>
 				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
 				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:30 PM</li>
 				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
 			</button>
 			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
 				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="#" role="button">WebDev 1 - JavaScript, Java, SQL</a>
+				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">WebDev 1 - JavaScript, Java, SQL</a>
 				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
 				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:19 PM</li>
 				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
 			</button>
 			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
 				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="#" role="button">WebDev 2 - AngularJS</a>
+				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">WebDev 2 - AngularJS</a>
 				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
 				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:30 PM</li>
 				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
