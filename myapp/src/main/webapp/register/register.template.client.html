@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Sign Up</h1>
+    <div class="form-group row">
+      <label for="username"
+             class="col-sm-2 col-form-lable">
+             Username
+      </label>
+      <input id="usernameFId"
+             type="text"
+             placeholder="Phone Number, Username or Email"
+             class="form-control col-sm-10 wbdv-field wbdv-username">
+    </div>
+    <div class="form-group row">
+      <label for="password"
+             class="col-sm-2 col-form-lable">
+             Password
+      </label>
+      <input id="passwordFId"
+             type="text"
+             placeholder="Password"
+             class="form-control col-sm-10 wbdv-field wbdv-password">
+    </div>
+    <div class="form-group row">
+  	  <label for="password-verify"
+             class="col-sm-2 col-form-lable">
+             Verify Password
+      </label>
+      <input id="verifyPasswordFId"
+             type="text"
+             placeholder="Retype Password"
+             class="form-control col-sm-10 wbdv-field wbdv-password-verify">
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2"></label>
+      <button class="form-control col-sm-10 btn btn-primary wbdv-button wbdv-register"
+      		  onclick="window.location.href='../profile/profile.template.client.html'">Sign up</button>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2"></label>
+      <a href="#"
+         class="col-4">Sign In</a>
+    </div>
+  </div>
+</body>
