@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="./courseEditor.template.client.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/bae1ffa649.js" crossorigin="anonymous"></script>
+<head>
+  <meta charset="UTF-8">
+  <label class="fixed-top wbdv-label wbdv-course-manager">
+  	<title>Course Editor</title>
+  </label>
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-secondary">
+ 		<label class="col-form-lable col-md-3 text-white h4 wbdv-course-title">
+      CS5600 WebDev Graduate
+    </label>
+    <i class="fas fa-plus fa-2x col-md-auto wbdv-new-page-btn"
+         style="color:#FFFAFA;"></i>
+    <ul class="nav nav-pills nav-fill col-md-8 wbdv-page-tab">
+      <li class="nav-item">
+        <a class="nav-link bg-secondary text-white-50 font-weight-bold" href="#">Build</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-secondary text-white-50 font-weight-bold" href="#">Pages</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-secondary text-white-50 font-weight-bold" href="#">Theme</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-secondary text-white-50 font-weight-bold" href="#">Store</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-secondary text-white-50 font-weight-bold" href="#">Apps</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link bg-secondary text-white-50 font-weight-bold" href="#">Settings</a>
+      </li>
+    </ul>
+    <i class="fas fa-times fa-2x col-md-auto wbdv-course-editor wbdv-close"
+	     style="color: #000000"></i>
+	</nav>
+	<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-3 d-none d-md-block bg-dark sidebar wbdv-module-list">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <div class="container">
+            <li class="nav-item wbdv-module-item">
+              <button type="button" class="btn btn-secondary btn-lg col-md-12">
+                <div class="container">
+                  <div class="row">
+                    <i class="offset-1 col col-8 align-middle wbdv-module-item-title">Module 1 - JQuery</i>
+                    <div class="col">
+                      <i class="col-md-auto fas fa-times wbdv-module-item-delete-btn"></i>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </li>
+            <label class="row"></label>
+            <li class="nav-item wbdv-module-item">
+              <button type="button" class="btn btn-secondary btn-lg col-md-12">
+                <div class="container">
+                  <div class="row">
+                    <i class="offset-1 col col-8 align-middle wbdv-module-item-title">Module 2 - React</i>
+                    <div class="col">
+                      <i class="col-md-auto fas fa-times wbdv-module-item-delete-btn"></i>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </li>
+            <label class="row"></label>
+            <li class="nav-item wbdv-module-item">
+              <button type="button" class="btn btn-secondary btn-lg col-md-12">
+                <div class="container">
+                  <div class="row">
+                    <i class="offset-1 col col-8 align-middle wbdv-module-item-title">Module 3 - Spring Boot</i>
+                    <div class="col">
+                      <i class="col-md-auto fas fa-times wbdv-module-item-delete-btn"></i>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </li>
+            <label class="row"></label>
+            <li class="nav-item wbdv-module-item">
+              <button type="button" class="btn btn-secondary btn-lg col-md-12">
+                <div class="container">
+                  <div class="row">
+                    <i class="offset-1 col col-8 align-middle wbdv-module-item-title">Module 4 - Native</i>
+                    <div class="col">
+                      <i class="col-md-auto fas fa-times wbdv-module-item-delete-btn"></i>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </li>
+            <label class="row"></label>
+            <li class="nav-item wbdv-module-item">
+              <button type="button" class="btn btn-secondary btn-lg col-md-12">
+                <div class="container">
+                  <div class="row">
+                    <i class="offset-1 col col-8 align-middle wbdv-module-item-title">Module 5 - AngularJS</i>
+                    <div class="col">
+                      <i class="col-md-auto fas fa-times wbdv-module-item-delete-btn"></i>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </li>
+            <label class="row"></label>
+            <li class="nav-item wbdv-module-item">
+              <button type="button" class="btn btn-secondary btn-lg col-md-12">
+                <div class="container">
+                  <div class="row">
+                    <i class="offset-1 col col-8 align-middle wbdv-module-item-title">Module 6 - Node.js</i>
+                    <div class="col">
+                      <i class="col-md-auto fas fa-times wbdv-module-item-delete-btn"></i>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            </li>
+            <label class="row"></label>
+            <label class="row"></label>
+            <i class="fas fa-plus offset-11 fa-2x wbdv-module-item-add-btn"
+               style="color: #FFFFFF"></i>
+          </div>
+        </ul>
+
+      </div>
+    </nav>
+    <div class="row col-md-9">
+      <div class="container-fluid wbdv-topic-pill-list">
+        <div class="row">
+          <div class="col">
+            <label class="row"></label>
+            <i class="col col-md-1"></i>
+            <i class="col col-md-1"></i>
+            <i class="col col-md-1"></i>
+            <i class="col col-md-1"></i>
+            <button type="button" class="btn btn-secondary wbdv-topic-pill">Topic 1</button>
+            <i class="col col-md-1"></i>
+            <button type="button" class="btn btn-secondary wbdv-topic-pill">Topic 2</button>
+            <i class="col col-md-1"></i>
+            <button type="button" class="btn btn-secondary wbdv-topic-pill">Topic 3</button>
+            <i class="col col-md-1"></i>
+            <button type="button" class="btn btn-secondary wbdv-topic-pill">Topic 4</button>
+            <i class="col col-md-1"></i>
+            <button type="button" class="btn btn-secondary wbdv-topic-pill">Topic 5</button>
+            <i class="col col-md-1"></i>
+            <button type="button" class="btn btn-secondary wbdv-topic-pill">Topic 6</button>
+            <i class="col col-md-1"></i>
+            <button type="button" class="btn btn-secondary wbdv-topic-pill">Topic 7</button>
+            <i class="col col-md-1"></i>
+            <button type="button" class="btn btn-secondary wbdv-topic-pill">Topic 8</button>
+            <i class="col col-md-1"></i>
+            <i class="far fa-plus-square fa-2x align-middle wbdv-topic-add-btn"></i>
+            <label class="row"></label>
+            <div class="row">
+              <div class="col">
+                <form class="form-inline">
+                  <button type="button" class="form-control offset-8 col-md-auto btn btn-success">Success</button>
+                  <label class="form-check-label bg-white col-md-auto font-weight-bold">Preview</label>
+                  <i class="fas fa-toggle-off fa-2x col-md-auto"></i>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <label class="row"></label>
+        <label class="row"></label>
+        <div class="row">
+          <div class="col col-10 offset-1 border border-light bg-light">
+            <form class="form-inline">
+              <h3 class="form-check-label bg-light col-md-auto font-weight-bold">Heading Widget</h3>
+              <i class="fas fa-arrow-circle-up offset-7 fa-2x col-md-auto"
+                 style="color: #FFAA1D"></i>
+              <i class="fas fa-arrow-circle-down fa-2x col-md-auto"
+                 style="color: #FFAA1D"></i>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle bg-light border-white text-dark" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown button
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
+              <i class="fas fa-window-close fa-2x col-md-auto"
+                 style="color: #FF0000"></i>
+            </form>
+            <label class="row"></label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"
+                      id="basic-addon1">Heading Text</span>
+              </div>
+              <input type="text" class="form-control"
+                     aria-label="HeadingText"
+                     aria-describedby="basic-addon1">
+            </div>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle bg-light border-dark text-dark col-md-12" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Heading 1
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+            <label class="row"></label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"
+                      id="basic-addon1">Widge Name</span>
+              </div>
+              <input type="text" class="form-control"
+                     aria-label="HeadingText"
+                     aria-describedby="basic-addon1">
+            </div>
+            <label class="row"></label>
+            <label class="row"></label>
+            <h3>
+              Preview
+            </h3>
+            <h1>
+              Heading Text
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
