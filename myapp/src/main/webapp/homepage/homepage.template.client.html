@@ -43,36 +43,7 @@
     					id="button-addon2">Search</button>
   			</div>
   		</div>
-  		<a class="nav-link" href="./login/login.template.client.html">Login</a>
-  		<a class="nav-link" href="./register/register.template.client.html">Sign Up</a>
-  	</nav>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light border sticky-top">
-		<div class="container">
-			<div class="col col-6">
-		  		<a class="navbar-brand font-weight-bold wbdv-header wbdv-title"
-		  		   href="#"
-		  		   style="color: #808080; float: left;">Title</a>
-	  		</div>
-	  		<div class="collapse navbar-collapse col col-3" id="navbarSupportedContent">
-	  			<ul class="navbar-nav">
-		  			<li class="nav-item dropdown">
-	       			<a class="nav-link dropdown-toggle font-weight-bold d-none d-xl-block wbdv-header wbdv-owner" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          			Owned By
-	        		</a>
-	      			</li>
-      			</ul>
-	  		</div>
-	  		<a class="navbar-text col col-2 font-weight-bold wbdv-header wbdv-last-modified d-none d-xl-block"
-	  		   href="#">Last modified by me</a>
-	  		<label class="col-1"></label>
-	  		<a href="#">
-	  			<i class="fas fa-grip-horizontal col col-1 wbdv-button wbdv-grid-layout wbdv-button wbdv-list-layout"></i>
-	  		</a>
-	  		<a href="#">
-	  			<i class="fas fa-sort-alpha-down wbdv-header wbdv-sort"></i>
-	  		</a>
-    	</div>
-    	<form class="form-inline my-2 my-lg-0 d-none d-xl-block">
+  		<form class="form-inline my-2 my-lg-0 d-none d-xl-block col-md-auto">
       		<input class="form-control mr-sm-2 wbdv-field wbdv-new-course"
       		   	   type="addCourse"
       		   	   placeholder="Enter a Course Title"
@@ -80,72 +51,203 @@
       		<button class="btn btn-outline-success my-2 my-sm-0 wbdv-button wbdv-add-course"
       			    type="submit">Add Course</button>
 		</form>
+  		<a class="nav-link" href="./login/login.template.client.html">Login</a>
+  		<a class="nav-link" href="./register/register.template.client.html">Sign Up</a>
+  	</nav>
+	<nav class="navbar navbar-expand-lg bg-light sticky-top"
+		 style="padding: 0; margin: 0">
+		<div class="container-fluid">
+		<div class="col-8 mx-auto">
+		<table class="table table-hover"
+		 	   style="padding: 0; margin: 0">
+					<thead>
+				    <tr>
+				    	<th style="width: 15%"></th>
+				    	<th scope="col"
+				    		class="font-weight-bold wbdv-header wbdv-title"
+				    		style="color: #808080; width: 25%; font-size: 20px">Title</th>
+				      	<th scope="col"
+				      		class="text-center wbdv-header wbdv-owner" 
+				      		style="color: #929292; width: 15%;">Owned By</th>
+				      	<th scope="col"
+				      		class="text-center wbdv-header wbdv-last-modified" 
+				      		style="color: #929292; width: 15%;">Last modified by me</th>
+				      	<th style="width: 10%;"
+				      		class="text-center">
+					      	<a href="#"
+					      	   scope="col">
+				  				<i class="fas fa-grip-horizontal col col-1 wbdv-button wbdv-grid-layout wbdv-button wbdv-list-layout"></i>
+					  	  	</a>
+					  	</th>
+					  	<th style="width: 10%;"
+					  		class="text-center">
+					  		<a href="#"
+					  		   scope="col">
+					  			<i class="fas fa-sort-alpha-down wbdv-header wbdv-sort"></i>
+					  		</a>
+					  	</th>
+					  	<th></th>
+				    </tr>
+				  	</thead>
+				</table>
+			</div>
+		</div>
 	</nav>
-	<div class="container-fluid">
-		<div class="list-group row wbdv-row wbdv-course">
-			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
-				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">CS5500 Software Engineering Graduate</a>
-				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
-				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:45 PM</li>
-				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-			</button>
-			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
-				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">CS4550 Software Engineering Undergraduate</a>
-				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
-				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:45 PM</li>
-				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-			</button>
-			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
-				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">CS4500 WebDev Undergraduate</a>
-				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
-				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:45 PM</li>
-				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-			</button>
-			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
-				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">CS5610 WebDev Graduate</a>
-				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
-				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:44 PM</li>
-				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-			</button>
-			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
-				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">CS5200 Intro to Databases</a>
-				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
-				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:43 PM</li>
-				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-			</button>
-			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
-				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">WebDev 2 - React</a>
-				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
-				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:33 PM</li>
-				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-			</button>
-			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
-				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">WebDev Syllabus</a>
-				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
-				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:30 PM</li>
-				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-			</button>
-			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
-				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">WebDev 1 - JavaScript, Java, SQL</a>
-				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
-				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:19 PM</li>
-				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-			</button>
-			<button type="button" class="list-group-item list-group-item-action col col-8 mx-auto text-secondary font-weight-bold">
-				<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				<a class="list-inline-item col col-5 wbdv-row wbdv-title text-secondary" href="./courseEditor/courseEditor.template.client.html" role="button">WebDev 2 - AngularJS</a>
-				<li class="list-inline-item col col-1 font-weight-normal wbdv-row wbdv-owner">me</li>
-				<li class="list-inline-item col col-3 offset-md-1 font-weight-normal wbdv-row wbdv-modified-date">6:30 PM</li>
-				<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-			</button>
+	<div class="container-fluid"
+		 style="padding: 0; margin: 0">
+		<div class="col-8 mx-auto">
+		<div class="table-responsive">
+			<table class="table table-hover">
+			  	<tbody>
+					<tr>
+				    	<th scope="row" 
+				    		class="text-right"
+				    		style="width: 15%">
+				    		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
+				    	</th>
+				      	<td class="wbdv-row wbdv-title"
+				      		style="width: 25%">
+				      		<a href="../courseEditor/courseEditor.template.client.html"
+				      		class="text-secondary font-weight-bold">CS5500 Software Engineering Graduate</a>
+				      	</td>
+				      	<td class="text-center wbdv-row wbdv-owner"
+				      		style="width: 15%">me</td>
+				      	<td class="text-center wbdv-row wbdv-modified-date"
+				      		style="width: 15%">6:45 PM</td>
+				      	<td style="width: 10%"></td>
+				      	<td style="width: 10%"></td>
+				      	<td>
+				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
+				      	</td>
+				    </tr>
+				    <tr>
+				      	<th scope="row" 
+				    		class="text-right"
+				    		style="width: 5%">
+				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
+				      	</th>
+				      	<td class="wbdv-row wbdv-title">
+				      		<a href="../courseEditor/courseEditor.template.client.html"
+				      		class="text-secondary font-weight-bold">CS4550 Software Engineering Undergraduate</a>
+				      	</td>
+				      	<td class="text-center wbdv-row wbdv-owner">me</td>
+				      	<td class="text-center wbdv-row wbdv-modified-date">6:45 PM</td>
+				      	<td></td>
+				      	<td></td>
+				      	<td>
+				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
+				      	</td>
+				    </tr>
+				    <tr>
+				      	<th scope="row" 
+				    		class="text-right"
+				    		style="width: 5%">
+				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
+				      	</th>
+				      	<td class="wbdv-row wbdv-title">
+				      		<a href="../courseEditor/courseEditor.template.client.html"
+				      		class="text-secondary font-weight-bold">CS4500 WebDeb Undergraduate</a>
+				      	</td>
+				      	<td class="text-center wbdv-row wbdv-owner">me</td>
+				      	<td class="text-center wbdv-row wbdv-modified-date">6:44 PM</td>
+				      	<td></td>
+				      	<td></td>
+				      	<td>
+				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
+				      	</td>
+				    </tr>
+				    <tr>
+				      	<th scope="row" 
+				    		class="text-right"
+				    		style="width: 5%">
+				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
+				      	</th>
+				      	<td class="wbdv-row wbdv-title">
+				      		<a href="../courseEditor/courseEditor.template.client.html"
+				      		class="text-secondary font-weight-bold">CS5610 WebDev Graduate</a>
+				      	</td>
+				      	<td class="text-center wbdv-row wbdv-owner">me</td>
+				      	<td class="text-center wbdv-row wbdv-modified-date">6:33 PM</td>
+				      	<td></td>
+				      	<td></td>
+				      	<td>
+				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
+				      	</td>
+				    </tr>
+				    <tr>
+				      	<th scope="row" 
+				    		class="text-right"
+				    		style="width: 5%">
+				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
+				      	</th>
+				      	<td class="wbdv-row wbdv-title">
+				      		<a href="../courseEditor/courseEditor.template.client.html"
+				      		class="text-secondary font-weight-bold">CS5200 Intro to Databases</a>
+				      	</td>
+				      	<td class="text-center wbdv-row wbdv-owner">me</td>
+				      	<td class="text-center wbdv-row wbdv-modified-date">6:31 PM</td>
+				      	<td></td>
+				      	<td></td>
+				      	<td>
+				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
+				      	</td>
+				    </tr>
+				    <tr>
+				      	<th scope="row" 
+				    		class="text-right"
+				    		style="width: 5%">
+				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
+				      	</th>
+				      	<td class="wbdv-row wbdv-title">
+				      		<a href="../courseEditor/courseEditor.template.client.html"
+				      		class="text-secondary font-weight-bold">WebDev Syllabus</a>
+				      	</td>
+				      	<td class="text-center wbdv-row wbdv-owner">me</td>
+				      	<td class="text-center wbdv-row wbdv-modified-date">6:28 PM</td>
+				      	<td></td>
+				      	<td></td>
+				      	<td>
+				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
+				      	</td>
+				    </tr>
+				    <tr>
+				      	<th scope="row" 
+				    		class="text-right"
+				    		style="width: 5%">
+				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
+				      	</th>
+				      	<td class="wbdv-row wbdv-title">
+				      		<a href="../courseEditor/courseEditor.template.client.html"
+				      		class="text-secondary font-weight-bold">WebDev 1 - JavaScript, Java, SQL</a>
+				      	</td>
+				      	<td class="text-center wbdv-row wbdv-owner">me</td>
+				      	<td class="text-center wbdv-row wbdv-modified-date">6:26 PM</td>
+				      	<td></td>
+				      	<td></td>
+				      	<td>
+				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
+				      	</td>
+				    </tr>
+				    <tr>
+				      	<th scope="row" 
+				    		class="text-right"
+				    		style="width: 5%">
+				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
+				      	</th>
+				      	<td class="wbdv-row wbdv-title">
+				      		<a href="../courseEditor/courseEditor.template.client.html"
+				      		class="text-secondary font-weight-bold">WebDev 2 - AngularJS</a>
+				      	</td>
+				      	<td class="text-center wbdv-row wbdv-owner">me</td>
+				      	<td class="text-center wbdv-row wbdv-modified-date">6:23 PM</td>
+				      	<td></td>
+				      	<td></td>
+				      	<td>
+				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
+				      	</td>
+				    </tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 	<div class="fixed-bottom col col-11"
