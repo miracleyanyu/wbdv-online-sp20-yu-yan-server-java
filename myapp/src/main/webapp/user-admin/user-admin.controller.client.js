@@ -3,11 +3,6 @@
 
     let users = [];
     let userList = $("#user-table");
-    let usernameFld = $("#username-fld");
-    var $usernameFld, $passwordFld;
-    var $removeBtn, $editBtn, $createBtn;
-    var $firstNameFld, $lastNameFld, $roleFld;
-    var $userRowTemplate, $tbody;
 
     deleteUser = function (index) {
         const userId = users[index]._id;
@@ -18,7 +13,30 @@
             })
     };
 
+    createUser = function () {
+        const username = usernameFld.value;
+        usernameFld.value = "";
+        const password = passwordFld.value;
+        passwordFld.value = "";
+        const firstName = firstNameFld.value;
+        firstNameFld.value = "";
+        const lastName = lastNameFld.value;
+        lastNameFld.value = "";
+        const role = roleFld.value.upper;
+        roleFld.value = "";
 
+        userService.createUser({
+            "username": username,
+            "password": password,
+            "firstName": firstName,
+            "lastName": lastName,
+            "role": role
+        }).then(newUser => {
+            users.push(newUser);
+            findAllUsers();
+            renderUsers();
+            })
+    };
 
     const findAllUsers = () =>
         userService
@@ -56,8 +74,8 @@
             newCell6.classList.add('wbdv-role');
             newCell7.innerHTML = "";
             $deleteBtn = $("<a position=\"\"id=\"wbdv-remove\"class=\"fa-2x fa fa-times col-md-auto wbdv-remove\""
-                + "onclick=\"deleteUser($(this).attr('position'))\"></a>").attr('position', u + "");
-            $editBtn = $("<i id=\"wbdv-edit\" class=\"fa-2x fa fa-pencil col-md-auto wbdv-edit\"></i>");
+                + "onclick=\"deleteUser($(this).attr('position'))\"/>").attr('position', u + "");
+            $editBtn = $("<i id=\"wbdv-edit\" class=\"fa-2x fa fa-pencil col-md-auto wbdv-edit\"/>");
             newCell8.innerHTML =
                   "<span class=\"float-right\">"
                 + $deleteBtn.prop('outerHTML')
