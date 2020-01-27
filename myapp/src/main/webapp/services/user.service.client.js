@@ -14,12 +14,17 @@ function AdminUserServiceClient() {
                 .then(response => response.json())
     }
     function findUserById(userId) {
-
+        return fetch(`${self.url}/${userId}`)
+                .then((response) => {
+                    return response.json()
+                })
     }
     function updateUser(userId, user) {
 
     }
     function deleteUser(userId) {
-
+        return fetch(`${self.url}/${userId}`, {
+            method: "DELETE"
+        })
     }
 }

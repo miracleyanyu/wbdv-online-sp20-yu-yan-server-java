@@ -2,12 +2,23 @@
     let userService = new AdminUserServiceClient();
 
     let users = [];
-    let userList = $("#wbdv-tbody");
+    let userList = $("#user-table");
     let usernameFld = $("#username-fld");
     var $usernameFld, $passwordFld;
     var $removeBtn, $editBtn, $createBtn;
     var $firstNameFld, $lastNameFld, $roleFld;
     var $userRowTemplate, $tbody;
+
+    deleteUser = function (index) {
+        const userId = users[index]._id;
+        userService.deleteUser(userId)
+            .then(response => {
+                users.splice(index, 1);
+                renderUsers();
+            })
+    };
+
+
 
     const findAllUsers = () =>
         userService
@@ -19,6 +30,7 @@
 
     const renderUsers = () => {
         var tableRef = document.getElementsByTagName('tbody')[0];
+        tableRef.innerHTML = "";
         for (let u = 0; u < users.length; u++) {
             var newRow = tableRef.insertRow(tableRef.rows.length);
             newRow.classList.add('wbdv-template');
@@ -43,10 +55,13 @@
             newCell6.innerHTML = users[u].role;
             newCell6.classList.add('wbdv-role');
             newCell7.innerHTML = "";
-            newCell8.innerHTML = ""
-                + "<span class=\"float-right\">"
-                + "<i id=\"wbdv-remove\"class=\"fa-2x fa fa-times col-md-auto wbdv-remove\"></i>"
-                + "<i id=\"wbdv-edit\" class=\"fa-2x fa fa-pencil col-md-auto wbdv-edit\"></i>"
+            $deleteBtn = $("<a position=\"\"id=\"wbdv-remove\"class=\"fa-2x fa fa-times col-md-auto wbdv-remove\""
+                + "onclick=\"deleteUser($(this).attr('position'))\"></a>").attr('position', u + "");
+            $editBtn = $("<i id=\"wbdv-edit\" class=\"fa-2x fa fa-pencil col-md-auto wbdv-edit\"></i>");
+            newCell8.innerHTML =
+                  "<span class=\"float-right\">"
+                + $deleteBtn.prop('outerHTML')
+                + $editBtn.prop('outerHTML')
                 + "</span>";
             newCell8.classList.add('wbdv-actions');
         }
