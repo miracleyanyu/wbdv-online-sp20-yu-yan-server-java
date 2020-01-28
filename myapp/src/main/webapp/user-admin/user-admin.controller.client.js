@@ -33,7 +33,6 @@
             "role": role
         }).then(newUser => {
             users.push(newUser);
-            findAllUsers();
             renderUsers(users);
             })
     };

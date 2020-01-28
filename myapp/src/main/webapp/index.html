@@ -1,260 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/bae1ffa649.js" crossorigin="anonymous"></script>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <label class="fixed-top wbdv-label wbdv-course-manager">
-  	<title>Course Manager</title>
-  </label>
+	<meta charset="UTF-8">
+	<title>User Admin</title>
+	<link rel="stylesheet" href=
+			"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href=
+			"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link href="./user-admin/user-admin.style.client.css" rel="stylesheet" />
+	<script
+			src="https://code.jquery.com/jquery-3.4.1.min.js"
+			integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+			crossorigin="anonymous"></script>
+	<script src="./services/user.service.client.js"></script>
+	<script src="./user-admin/user-admin.controller.client.js"></script>
+</head>
+<head>
+	<meta charset="UTF-8">
+	<label class="fixed-top">
+		<title>User Management System</title>
+	</label>
 </head>
 <body class="bg-light">
-  	<nav class="navbar navbar-dark bg-dark">
-    	<label class="col-form-lable col-2 text-white h4 wbdv-label wbdv-course-manager">
-               Courser Manager
-      	</label>
-      	<div class="dropdown ustify-content-end wbdv-field wbdv-hamburger">
-  			<button class="btn btn-secondary dropdown-toggle"
-  					type="button"
-  					id="dropdownMenuButton"
-  					data-toggle="dropdown"
-  					aria-haspopup="true"
-  					aria-expanded="false">
-    				Explore
-  			</button>
-  			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    			<a class="dropdown-item" href="#">Action</a>
-			    <a class="dropdown-item" href="#">Another action</a>
-			    <a class="dropdown-item" href="#">Something else here</a>
-  			</div>
-		</div>
-		<div class="container">
-			<input type="text"
-				   class="form-control col col-8 font-italic d-none d-xl-block"
-				   placeholder="Enter a Course Title"
-				   aria-label="Search"
-				   aria-describedby="button-addon2">
-  			<div class="input-group-append col col-4">
-    			<button class="btn btn-outline-secondary text-white d-none d-xl-block"
-    					type="button"
-    					id="button-addon2">Search</button>
-  			</div>
-  		</div>
-  		<form class="form-inline my-2 my-lg-0 d-none d-xl-block col-md-auto">
-      		<input class="form-control mr-sm-2 wbdv-field wbdv-new-course"
-      		   	   type="addCourse"
-      		   	   placeholder="Enter a Course Title"
-      		       aria-label="addCourse">
-      		<button class="btn btn-outline-success my-2 my-sm-0 wbdv-button wbdv-add-course"
-      			    type="submit">Add Course</button>
-		</form>
-  		<a class="nav-link" href="./login/login.template.client.html">Login</a>
-  		<a class="nav-link" href="./register/register.template.client.html">Sign Up</a>
-  	</nav>
-	<nav class="navbar navbar-expand-lg bg-light sticky-top"
+<nav class="navbar navbar-dark bg-dark">
+	<label class="col-form-lable col-11 text-white h4">
+		User Management System
+	</label>
+	<a class="nav-link text-right" href="./login/login.template.client.html">Login</a>
+	<a class="nav-link" href="./register/register.template.client.html">Sign Up</a>
+</nav>
+<nav class="navbar navbar-expand-lg bg-light sticky-top"
 		 style="padding: 0; margin: 0">
-		<div class="container-fluid">
+	<div class="container-fluid">
 		<div class="col-8 mx-auto">
-		<table class="table table-hover"
-		 	   style="padding: 0; margin: 0">
-					<thead>
-				    <tr>
-				    	<th style="width: 15%"></th>
-				    	<th scope="col"
-				    		class="font-weight-bold wbdv-header wbdv-title"
-				    		style="color: #808080; width: 25%; font-size: 20px">Title</th>
-				      	<th scope="col"
-				      		class="text-center wbdv-header wbdv-owner d-none d-lg-table-cell" 
-				      		style="color: #929292; width: 15%;">Owned By</th>
-				      	<th scope="col"
-				      		class="text-center wbdv-header wbdv-last-modified d-none d-lg-table-cell" 
-				      		style="color: #929292; width: 15%;">Last modified by me</th>
-				      	<th style="width: 10%;"
-				      		class="text-center">
-					      	<a href="#"
-					      	   scope="col">
-				  				<i class="fas fa-grip-horizontal col col-1 wbdv-button wbdv-grid-layout wbdv-button wbdv-list-layout"></i>
-					  	  	</a>
-					  	</th>
-					  	<th style="width: 10%;"
-					  		class="text-center">
-					  		<a href="#"
-					  		   scope="col">
-					  			<i class="fas fa-sort-alpha-down wbdv-header wbdv-sort"></i>
-					  		</a>
-					  	</th>
-					  	<th></th>
-				    </tr>
-				  	</thead>
-				</table>
-			</div>
-		</div>
-	</nav>
-	<div class="container-fluid"
-		 style="padding: 0; margin: 0">
-		<div class="col-8 mx-auto">
-		<div class="table-responsive">
-			<table class="table table-hover">
-			  	<tbody>
-					<tr>
-				    	<th scope="row" 
-				    		class="text-right"
-				    		style="width: 15%">
-				    		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				    	</th>
-				      	<td class="wbdv-row wbdv-title"
-				      		style="width: 25%">
-				      		<a href="../courseEditor/courseEditor.template.client.html"
-				      		class="text-secondary font-weight-bold">CS5500 Software Engineering Graduate</a>
-				      	</td>
-				      	<td class="text-center wbdv-row wbdv-owner d-none d-lg-table-cell"
-				      		style="width: 15%">me</td>
-				      	<td class="text-center wbdv-row wbdv-modified-date d-none d-lg-table-cell"
-				      		style="width: 15%">6:45 PM</td>
-				      	<td style="width: 10%"></td>
-				      	<td style="width: 10%"></td>
-				      	<td>
-				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-				      	</td>
-				    </tr>
-				    <tr>
-				      	<th scope="row" 
-				    		class="text-right"
-				    		style="width: 5%">
-				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				      	</th>
-				      	<td class="wbdv-row wbdv-title">
-				      		<a href="../courseEditor/courseEditor.template.client.html"
-				      		class="text-secondary font-weight-bold">CS4550 Software Engineering Undergraduate</a>
-				      	</td>
-				      	<td class="text-center wbdv-row wbdv-owner d-none d-lg-table-cell">me</td>
-				      	<td class="text-center wbdv-row wbdv-modified-date d-none d-lg-table-cell">6:45 PM</td>
-				      	<td></td>
-				      	<td></td>
-				      	<td>
-				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-				      	</td>
-				    </tr>
-				    <tr>
-				      	<th scope="row" 
-				    		class="text-right"
-				    		style="width: 5%">
-				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				      	</th>
-				      	<td class="wbdv-row wbdv-title">
-				      		<a href="../courseEditor/courseEditor.template.client.html"
-				      		class="text-secondary font-weight-bold">CS4500 WebDeb Undergraduate</a>
-				      	</td>
-				      	<td class="text-center wbdv-row wbdv-owner d-none d-lg-table-cell">me</td>
-				      	<td class="text-center wbdv-row wbdv-modified-date d-none d-lg-table-cell">6:44 PM</td>
-				      	<td></td>
-				      	<td></td>
-				      	<td>
-				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-				      	</td>
-				    </tr>
-				    <tr>
-				      	<th scope="row" 
-				    		class="text-right"
-				    		style="width: 5%">
-				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				      	</th>
-				      	<td class="wbdv-row wbdv-title">
-				      		<a href="../courseEditor/courseEditor.template.client.html"
-				      		class="text-secondary font-weight-bold">CS5610 WebDev Graduate</a>
-				      	</td>
-				      	<td class="text-center wbdv-row wbdv-owner d-none d-lg-table-cell">me</td>
-				      	<td class="text-center wbdv-row wbdv-modified-date d-none d-lg-table-cell">6:33 PM</td>
-				      	<td></td>
-				      	<td></td>
-				      	<td>
-				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-				      	</td>
-				    </tr>
-				    <tr>
-				      	<th scope="row" 
-				    		class="text-right"
-				    		style="width: 5%">
-				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				      	</th>
-				      	<td class="wbdv-row wbdv-title">
-				      		<a href="../courseEditor/courseEditor.template.client.html"
-				      		class="text-secondary font-weight-bold">CS5200 Intro to Databases</a>
-				      	</td>
-				      	<td class="text-center wbdv-row wbdv-owner d-none d-lg-table-cell">me</td>
-				      	<td class="text-center wbdv-row wbdv-modified-date d-none d-lg-table-cell">6:31 PM</td>
-				      	<td></td>
-				      	<td></td>
-				      	<td>
-				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-				      	</td>
-				    </tr>
-				    <tr>
-				      	<th scope="row" 
-				    		class="text-right"
-				    		style="width: 5%">
-				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				      	</th>
-				      	<td class="wbdv-row wbdv-title">
-				      		<a href="../courseEditor/courseEditor.template.client.html"
-				      		class="text-secondary font-weight-bold">WebDev Syllabus</a>
-				      	</td>
-				      	<td class="text-center wbdv-row wbdv-owner d-none d-lg-table-cell">me</td>
-				      	<td class="text-center wbdv-row wbdv-modified-date d-none d-lg-table-cell">6:28 PM</td>
-				      	<td></td>
-				      	<td></td>
-				      	<td>
-				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-				      	</td>
-				    </tr>
-				    <tr>
-				      	<th scope="row" 
-				    		class="text-right"
-				    		style="width: 5%">
-				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				      	</th>
-				      	<td class="wbdv-row wbdv-title">
-				      		<a href="../courseEditor/courseEditor.template.client.html"
-				      		class="text-secondary font-weight-bold">WebDev 1 - JavaScript, Java, SQL</a>
-				      	</td>
-				      	<td class="text-center wbdv-row wbdv-owner d-none d-lg-table-cell">me</td>
-				      	<td class="text-center wbdv-row wbdv-modified-date d-none d-lg-table-cell">6:26 PM</td>
-				      	<td></td>
-				      	<td></td>
-				      	<td>
-				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-				      	</td>
-				    </tr>
-				    <tr>
-				      	<th scope="row" 
-				    		class="text-right"
-				    		style="width: 5%">
-				      		<i class="far fa-file-alt col-md-auto text-primary wbdv-row wbdv-icon"></i>
-				      	</th>
-				      	<td class="wbdv-row wbdv-title">
-				      		<a href="../courseEditor/courseEditor.template.client.html"
-				      		class="text-secondary font-weight-bold">WebDev 2 - AngularJS</a>
-				      	</td>
-				      	<td class="text-center wbdv-row wbdv-owner d-none d-lg-table-cell">me</td>
-				      	<td class="text-center wbdv-row wbdv-modified-date d-none d-lg-table-cell">6:23 PM</td>
-				      	<td></td>
-				      	<td></td>
-				      	<td>
-				      		<i class="fas fa-times col-md-auto wbdv-row wbdv-button wbdv-delete"></i>
-				      	</td>
-				    </tr>
+			<table class="table table-hover"
+						 style="padding: 0; margin: 0">
+				<thead>
+				<tr class="wbdv-nav">
+					<th></th>
+					<th scope="col"
+							class="text-center font-weight-bold">Username</th>
+					<th scope="col"
+							class="text-center d-none d-lg-table-cell">Password</th>
+					<th scope="col"
+							class="text-center d-none d-lg-table-cell">First Name</th>
+					<th scope="col"
+							class="text-center d-none d-lg-table-cell">Last Name</th>
+					<th scope="col"
+							class="text-center d-none d-lg-table-cell">Role</th>
+					<th class="formSpace"></th>
+				</tr>
+				<tr class="wbdv-form">
+					<td></td>
+					<td>
+						<input id="usernameFld"
+									 class="form-control"
+									 placeholder="Username">
+					</td>
+					<td>
+						<input id="passwordFld"
+									 class="form-control"
+									 placeholder="Password">
+					</td>
+					<td>
+						<input id="firstNameFld"
+									 class="form-control"
+									 placeholder="First Name">
+					</td>
+					<td>
+						<input id="lastNameFld"
+									 class="form-control"
+									 placeholder="Last Name">
+					</td>
+					<td>
+						<select id="roleFld" class="form-control">
+							<option value="FACULTY">Faculty</option>
+							<option value="STUDENT">Student</option>
+							<option value="ADMIN">Admin</option>
+						</select>
+					</td>
+					<td></td>
+					<td class="formButton">
+								<span class="float-right" style="white-space: nowrap">
+											<i class="fa-2x fa fa-search col-md-auto wbdv-search"
+												 onclick="searchUser()"></i>
+											<i class="fa-2x fa fa-plus col-md-auto wbdv-create"
+												 onclick="createUser()"></i>
+											<i class="fa-2x fa fa-check col-md-auto wbdv-update"
+												 onclick="updateUser()"></i>
+								</span>
+					</td>
+				</tr>
+				</thead>
+				<tbody id="user-table"
+							 class="wbdv-tbody">
 				</tbody>
 			</table>
 		</div>
 	</div>
-	<div class="fixed-bottom col col-11"
-		 style="text-align: right; height: 200px;">
-		<a href="#">
-			<i class="fas fa-plus-circle fa-5x"
-			   style="color: #F51B00"></i>
-		</a>
-	</div>
+</nav>
 </body>
