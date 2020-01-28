@@ -48,10 +48,35 @@
             firstName === "" &&
             lastName === "" &&
             role === "FACULTY") {
-            findAllUsers();
-            renderUsers(users);
+            searchList = users.slice(0);
+            if (role === "FACULTY") {
+                for (let u = 0; u < searchList.length; u++) {
+                    if (searchList[u].role.toUpperCase() !== "FACULTY") {
+                        searchList.splice(u, 1);
+                        u--;
+                    }
+                }
+            }
+            else if (role === "STUDENT") {
+                for (let u = 0; u < searchList.length; u++) {
+                    if (searchList[u].role.toUpperCase() !== "STUDENT") {
+                        searchList.splice(u, 1);
+                        u--;
+                    }
+                }
+            }
+            else if (role === "ADMIN") {
+                for (let u = 0; u < searchList.length; u++) {
+                    if (searchList[u].role.toUpperCase() !== "ADMIN") {
+                        searchList.splice(u, 1);
+                        u--;
+                    }
+                }
+            }
+            renderUsers(searchList);
         }
         else {
+            searchList = users.slice(0);
             if (username !== "") {
                 for (let u = 0; u < searchList.length; u++) {
                     if (searchList[u].username !== username) {
