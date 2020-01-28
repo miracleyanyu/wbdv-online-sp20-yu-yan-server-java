@@ -162,7 +162,9 @@
         tableRef.innerHTML = "";
         for (let u = 0; u < usersList.length; u++) {
             var newRow = tableRef.insertRow(tableRef.rows.length);
+            newRow.classList.add('wbdv-template');
             newRow.classList.add('wbdv-user');
+            newRow.classList.add('wbdv-hidden');
             var newCell1 = newRow.insertCell(0);
             var newCell2 = newRow.insertCell(1);
             var newCell3 = newRow.insertCell(2);
