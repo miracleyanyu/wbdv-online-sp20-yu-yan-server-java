@@ -2,7 +2,6 @@
     let userService = new AdminUserServiceClient();
 
     let users = [];
-    let userList = $("#user-table");
 
     deleteUser = function (index) {
         const userId = users[index]._id;
@@ -22,8 +21,8 @@
         firstNameFld.value = "";
         const lastName = lastNameFld.value;
         lastNameFld.value = "";
-        const role = roleFld.value.upper;
-        roleFld.value = "";
+        const role = roleFld.value;
+        $("#roleFld").val("FACULTY");
 
         userService.createUser({
             "username": username,
@@ -36,6 +35,44 @@
             findAllUsers();
             renderUsers();
             })
+    };
+
+    let currentUserId = -1;
+    editUser = function (index) {
+        const userId = users[index]._id;
+        currentUserId = userId;
+        userService.findUserById(userId)
+            .then(user => {
+                usernameFld.value = user.username;
+                passwordFld.value = user.password;
+                firstNameFld.value = user.firstName;
+                lastNameFld.value = user.lastName;
+                $("#roleFld").val(user.role);
+            })
+    };
+
+    updateUser = function () {
+        const username = usernameFld.value;
+        usernameFld.value = "";
+        const password = passwordFld.value;
+        passwordFld.value = "";
+        const firstName = firstNameFld.value;
+        firstNameFld.value = "";
+        const lastName = lastNameFld.value;
+        lastNameFld.value = "";
+        const role = roleFld.value;
+        $("#roleFld").val("FACULTY");
+
+        userService.updateUser(currentUserId, {
+            "username": username,
+            "password": password,
+            "firstName": firstName,
+            "lastName": lastName,
+            "role": role
+        }).then(user => {
+            findAllUsers();
+            renderUsers();
+        })
     };
 
     const findAllUsers = () =>
@@ -75,7 +112,8 @@
             newCell7.innerHTML = "";
             $deleteBtn = $("<a position=\"\"id=\"wbdv-remove\"class=\"fa-2x fa fa-times col-md-auto wbdv-remove\""
                 + "onclick=\"deleteUser($(this).attr('position'))\"/>").attr('position', u + "");
-            $editBtn = $("<i id=\"wbdv-edit\" class=\"fa-2x fa fa-pencil col-md-auto wbdv-edit\"/>");
+            $editBtn = $("<i id=\"wbdv-edit\" class=\"fa-2x fa fa-pencil col-md-auto wbdv-edit\""
+                + "onclick=\"editUser($(this).attr('position'))\"/>").attr('position', u + "");
             newCell8.innerHTML =
                   "<span class=\"float-right\">"
                 + $deleteBtn.prop('outerHTML')
