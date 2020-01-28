@@ -2,13 +2,14 @@
     let userService = new AdminUserServiceClient();
 
     let users = [];
+    let searchList = [];
 
     deleteUser = function (index) {
         const userId = users[index]._id;
         userService.deleteUser(userId)
             .then(response => {
                 users.splice(index, 1);
-                renderUsers();
+                renderUsers(users);
             })
     };
 
@@ -33,8 +34,57 @@
         }).then(newUser => {
             users.push(newUser);
             findAllUsers();
-            renderUsers();
+            renderUsers(users);
             })
+    };
+
+    searchUser = function () {
+        const username = usernameFld.value;
+        const password = passwordFld.value;
+        const firstName = firstNameFld.value;
+        const lastName = lastNameFld.value;
+        const role = roleFld.value.toUpperCase();
+        if (username === "" &&
+            password === "" &&
+            firstName === "" &&
+            lastName === "" &&
+            role === "FACULTY") {
+            findAllUsers();
+            renderUsers(users);
+        }
+        else {
+            if (username !== "") {
+                for (let u = 0; u < searchList.length; u++) {
+                    if (searchList[u].username !== username) {
+                        searchList.splice(u, 1);
+                        u--;
+                    }
+                }
+            }
+            if (firstName !== "") {
+                for (let u = 0; u < searchList.length; u++) {
+                    if (searchList[u].firstName !== firstName) {
+                        searchList.splice(u, 1);
+                        u--;
+                    }
+                }
+            }
+            if (lastName !== "") {
+                for (let u = 0; u < searchList.length; u++) {
+                    if (searchList[u].lastName !== lastName) {
+                        searchList.splice(u, 1);
+                        u--;
+                    }
+                }
+            }
+            for (let u = 0; u < searchList.length; u++) {
+                if (searchList[u].role.toUpperCase() !== role) {
+                    searchList.splice(u, 1);
+                    u--;
+                }
+            }
+            renderUsers(searchList);
+        }
     };
 
     let currentUserId = -1;
@@ -71,7 +121,7 @@
             "role": role
         }).then(user => {
             findAllUsers();
-            renderUsers();
+            renderUsers(users);
         })
     };
 
@@ -80,13 +130,13 @@
             .findAllUsers()
             .then((theUsers) => {
                 users = theUsers;
-                renderUsers();
+                renderUsers(users);
             });
 
-    const renderUsers = () => {
+    const renderUsers = (usersList) => {
         var tableRef = document.getElementsByTagName('tbody')[0];
         tableRef.innerHTML = "";
-        for (let u = 0; u < users.length; u++) {
+        for (let u = 0; u < usersList.length; u++) {
             var newRow = tableRef.insertRow(tableRef.rows.length);
             newRow.classList.add('wbdv-template');
             newRow.classList.add('wbdv-user');
@@ -100,14 +150,14 @@
             var newCell7 = newRow.insertCell(6);
             var newCell8 = newRow.insertCell(7);
             newCell1.innerHTML = "";
-            newCell2.innerHTML = users[u].username;
+            newCell2.innerHTML = usersList[u].username;
             newCell2.classList.add('wbdv-username');
             newCell3.innerHTML = "&nbsp;";
-            newCell4.innerHTML = users[u].firstName;
+            newCell4.innerHTML = usersList[u].firstName;
             newCell4.classList.add('wbdv-first-name');
-            newCell5.innerHTML = users[u].lastName;
+            newCell5.innerHTML = usersList[u].lastName;
             newCell5.classList.add('wbdv-last-name');
-            newCell6.innerHTML = users[u].role;
+            newCell6.innerHTML = usersList[u].role;
             newCell6.classList.add('wbdv-role');
             newCell7.innerHTML = "";
             $deleteBtn = $("<a position=\"\"id=\"wbdv-remove\"class=\"fa-2x fa fa-times col-md-auto wbdv-remove\""
