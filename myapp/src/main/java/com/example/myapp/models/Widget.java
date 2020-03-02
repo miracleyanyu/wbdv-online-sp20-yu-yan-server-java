@@ -1,8 +1,20 @@
 package com.example.myapp.models;
 
+import javax.persistence.*;
+import net.minidev.json.annotate.JsonIgnore;
+
+@Entity
+@Table(name="widgets")
 public class Widget {
-  private String id;
-  private String topicId;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
+
+  @ManyToOne
+  @JsonIgnore
+  private Topic topic;
+
   private String name;
   private String type;
   private String text;
@@ -18,11 +30,10 @@ public class Widget {
   public Widget() {
   }
 
-  public Widget(String id, String topicId, String name, String type, String text, String src,
+  public Widget(Topic topic, String name, String type, String text, String src,
       String cssClass, String style, String value, Integer order, Integer size,
       Integer width, Integer height) {
-    this.id = id;
-    this.topicId = topicId;
+    this.topic = topic;
     this.name = name;
     this.type = type;
     this.text = text;
@@ -36,11 +47,15 @@ public class Widget {
     this.height = height;
   }
 
-  public String getId() {
+  public Widget(Topic topic) {
+    this.topic = topic;
+  }
+
+  public Integer getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
@@ -132,11 +147,11 @@ public class Widget {
     this.height = height;
   }
 
-  public String getTopicId() {
-    return topicId;
+  public Topic getTopic() {
+    return topic;
   }
 
-  public void setTopicId(String topicId) {
-    this.topicId = topicId;
+  public void setTopic(Topic topic) {
+    this.topic = topic;
   }
 }
