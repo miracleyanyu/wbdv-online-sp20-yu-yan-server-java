@@ -1,7 +1,7 @@
 package com.example.myapp.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
-import net.minidev.json.annotate.JsonIgnore;
 
 @Entity
 @Table(name="widgets")
@@ -22,7 +22,7 @@ public class Widget {
   private String cssClass;
   private String style;
   private String value;
-  private Integer order;
+  private Integer widgetOrder;
   private Integer size;
   private Integer width;
   private Integer height;
@@ -31,7 +31,7 @@ public class Widget {
   }
 
   public Widget(Topic topic, String name, String type, String text, String src,
-      String cssClass, String style, String value, Integer order, Integer size,
+      String cssClass, String style, String value, Integer widgetOrder, Integer size,
       Integer width, Integer height) {
     this.topic = topic;
     this.name = name;
@@ -41,7 +41,7 @@ public class Widget {
     this.cssClass = cssClass;
     this.style = style;
     this.value = value;
-    this.order = order;
+    this.widgetOrder = widgetOrder;
     this.size = size;
     this.width = width;
     this.height = height;
@@ -115,12 +115,12 @@ public class Widget {
     this.value = value;
   }
 
-  public Integer getOrder() {
-    return order;
+  public Integer getWidgetOrder() {
+    return widgetOrder;
   }
 
-  public void setOrder(Integer order) {
-    this.order = order;
+  public void setWidgetOrder(Integer widgetOrder) {
+    this.widgetOrder = widgetOrder;
   }
 
   public Integer getSize() {

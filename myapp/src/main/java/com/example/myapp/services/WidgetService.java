@@ -1,74 +1,76 @@
 package com.example.myapp.services;
 
+import com.example.myapp.models.Topic;
 import com.example.myapp.models.Widget;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
+import com.example.myapp.repositories.TopicRepository;
+import com.example.myapp.repositories.WidgetRepository;
 import java.util.List;
-import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class WidgetService {
 
-  private List<Widget> widgetList = new ArrayList<Widget>();
-  private int order = 0;
+  @Autowired
+  WidgetRepository widgetRepository;
+
+  @Autowired
+  TopicRepository topicRepository;
+
+  private int total = 0;
 
   public List<Widget> findAllWidgets() {
-    return widgetList;
+    return widgetRepository.findAllWidgets();
   }
 
-  public Widget findWidgetById(String wid) {
-    for (Widget widget : widgetList) {
-      if (widget.getId().equals(wid)) {
-        return widget;
-      }
-    }
-    return null;
+  public Widget findWidgetById(Integer wid) {
+    return widgetRepository.findWidgetById(wid);
   }
 
-  public List<Widget> findWidgetsByTopic(String tid) {
-    List<Widget> widgets = new ArrayList<>();
-    for (Widget widget : widgetList) {
-      if (widget.getTopicId().equals(tid)) {
-        widgets.add(widget);
-      }
-    }
-    return widgets;
+  public List<Widget> findWidgetsForTopic(Integer tid) {
+    return widgetRepository.findWidgetsForTopic(tid);
   }
 
-  public Widget createWidget(String tid, Widget widget) {
-    widget.setTopicId(tid);
-    widget.setOrder(order++);
-    widget.setId(UUID.randomUUID().toString());
-    widgetList.add(widget);
-    widgetList.sort(Comparator.comparingInt(Widget::getOrder));
-    return widget;
+  void createWidget() {
+    total++;
   }
 
-  public int updateWidget(String wid, Widget newWidget) {
-    widgetList.sort(Comparator.comparingInt(Widget::getOrder));
+  public int updateWidget(Integer wid, Widget newWidget) {
     boolean found = false;
     boolean up = false;
     boolean down = false;
-    for (int i = 0; i < widgetList.size(); i++) {
-      if (found && !widgetList.get(i).getId().equals(wid) && up) {
-        widgetList.get(i).setOrder(widgetList.get(i).getOrder() + 1);
-        widgetList.sort(Comparator.comparingInt(Widget::getOrder));
+    List<Widget> list = widgetRepository.findAllWidgets();
+    int totalWidget = list.size();
+    for (int i = 0; i < totalWidget; i++) {
+      Widget curWidget = list.get(i);
+      if (found && !curWidget.getId().equals(wid) && up) {
+        curWidget.setWidgetOrder(curWidget.getWidgetOrder() + 1);
+        widgetRepository.save(curWidget);
         return 1;
       }
-      else if (found && !widgetList.get(i).getId().equals(wid) && down) {
-        widgetList.get(i).setOrder(widgetList.get(i).getOrder() - 1);
-        widgetList.sort(Comparator.comparingInt(Widget::getOrder));
+      else if (found && !curWidget.getId().equals(wid) && down) {
+        curWidget.setWidgetOrder(curWidget.getWidgetOrder() - 1);
+        widgetRepository.save(curWidget);
         return 1;
       }
-      if (widgetList.get(i).getId().equals(wid)) {
-        if (widgetList.get(i).getOrder() > newWidget.getOrder()) {
+      if (curWidget.getId().equals(wid)) {
+        if (curWidget.getWidgetOrder() > newWidget.getWidgetOrder()) {
           up = true;
         }
-        else if (widgetList.get(i).getOrder() < newWidget.getOrder()){
+        else if (curWidget.getWidgetOrder() < newWidget.getWidgetOrder()){
           down = true;
         }
-        widgetList.set(i, newWidget);
+        curWidget.setWidgetOrder(newWidget.getWidgetOrder());
+        curWidget.setTopic(newWidget.getTopic());
+        curWidget.setCssClass(newWidget.getCssClass());
+        curWidget.setHeight(newWidget.getHeight());
+        curWidget.setName(newWidget.getName());
+        curWidget.setSize(newWidget.getSize());
+        curWidget.setSrc(newWidget.getSrc());
+        curWidget.setStyle(newWidget.getStyle());
+        curWidget.setText(newWidget.getText());
+        curWidget.setType(newWidget.getType());
+        widgetRepository.save(curWidget);
         if (up) {
           i = i - 2;
         }
@@ -76,30 +78,29 @@ public class WidgetService {
       }
     }
     if (found) {
-      widgetList.sort(Comparator.comparingInt(Widget::getOrder));
       return 1;
     }
-    widgetList.sort(Comparator.comparingInt(Widget::getOrder));
     return 0;
   }
 
-  public int deleteWidget(String wid) {
-    boolean found = false;
-    widgetList.sort(Comparator.comparingInt(Widget::getOrder));
-    for(int i = 0; i < widgetList.size(); i++) {
-      if (found) {
-        widgetList.get(i).setOrder(widgetList.get(i).getOrder() - 1);
-      }
-      else if (widgetList.get(i).getId().equals(wid)) {
-        widgetList.remove(i);
-        i--;
-        found = true;
-      }
-    }
-    order--;
-    if (!found) {
-      return 0;
-    }
+  public int deleteWidget(Integer wid) {
+//    boolean found = false;
+//    for(int i = 0; i < total; i++) {
+//      Widget curWidget = widgetRepository.findAllWidgets().get(i);
+//      if (found) {
+//        curWidget.setWidgetOrder(curWidget.getWidgetOrder() - 1);
+//      }
+//      else if (curWidget.getId().equals(wid)) {
+//        widgetRepository.deleteById(curWidget.getId());
+//        i--;
+//        found = true;
+//      }
+//    }
+//    order--;
+//    if (!found) {
+//      return 0;
+//    }
+    total--;
     return 1;
   }
 
