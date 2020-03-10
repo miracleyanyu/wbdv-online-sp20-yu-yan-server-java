@@ -60,7 +60,9 @@ public class WidgetService {
         else if (curWidget.getWidgetOrder() < newWidget.getWidgetOrder()){
           down = true;
         }
-        curWidget.setWidgetOrder(newWidget.getWidgetOrder());
+        if (!(i == 0 && up || i == totalWidget - 1 && down)) {
+          curWidget.setWidgetOrder(newWidget.getWidgetOrder());
+        }
         curWidget.setTopic(newWidget.getTopic());
         curWidget.setCssClass(newWidget.getCssClass());
         curWidget.setHeight(newWidget.getHeight());
@@ -70,6 +72,8 @@ public class WidgetService {
         curWidget.setStyle(newWidget.getStyle());
         curWidget.setText(newWidget.getText());
         curWidget.setType(newWidget.getType());
+        curWidget.setTopicId(newWidget.getTopicId());
+        curWidget.setTopic(topicRepository.findTopicById(newWidget.getTopicId()));
         widgetRepository.save(curWidget);
         if (up) {
           i = i - 2;
@@ -84,22 +88,6 @@ public class WidgetService {
   }
 
   public int deleteWidget(Integer wid) {
-//    boolean found = false;
-//    for(int i = 0; i < total; i++) {
-//      Widget curWidget = widgetRepository.findAllWidgets().get(i);
-//      if (found) {
-//        curWidget.setWidgetOrder(curWidget.getWidgetOrder() - 1);
-//      }
-//      else if (curWidget.getId().equals(wid)) {
-//        widgetRepository.deleteById(curWidget.getId());
-//        i--;
-//        found = true;
-//      }
-//    }
-//    order--;
-//    if (!found) {
-//      return 0;
-//    }
     total--;
     return 1;
   }

@@ -33,10 +33,10 @@ public class TopicService {
 
   public int updateTopic(Integer tid, Topic newTopic) {
     boolean found = false;
-    for (int i = 0; i < total; i++) {
-      Topic curTopic = topicRepository.findAllTopics().get(i);
+    List<Topic> list = topicRepository.findAllTopics();
+    for (Topic curTopic : list) {
       if (curTopic.getId().equals(tid)) {
-        curTopic = newTopic;
+        curTopic.setTitle(newTopic.getTitle());
         topicRepository.save(curTopic);
         found = true;
       }
@@ -60,6 +60,7 @@ public class TopicService {
     widgetService.createWidget();
     newWidget.setWidgetOrder(order++);
     newWidget.setTopic(topic);
+    newWidget.setTopicId(topic.getId());
     return widgetRepository.save(newWidget);
   }
 

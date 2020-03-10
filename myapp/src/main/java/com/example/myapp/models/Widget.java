@@ -26,13 +26,14 @@ public class Widget {
   private Integer size;
   private Integer width;
   private Integer height;
+  private Integer topicid;
 
   public Widget() {
   }
 
   public Widget(Topic topic, String name, String type, String text, String src,
       String cssClass, String style, String value, Integer widgetOrder, Integer size,
-      Integer width, Integer height) {
+      Integer width, Integer height, Integer topicid) {
     this.topic = topic;
     this.name = name;
     this.type = type;
@@ -45,6 +46,7 @@ public class Widget {
     this.size = size;
     this.width = width;
     this.height = height;
+    this.topicid = topicid;
   }
 
   public Widget(Topic topic) {
@@ -153,5 +155,13 @@ public class Widget {
 
   public void setTopic(Topic topic) {
     this.topic = topic;
+  }
+
+  public Integer getTopicId() {
+    return topicid;
+  }
+
+  public void setTopicId(Integer topicId) {
+    this.topicid = topicId;
   }
 }
